@@ -1,6 +1,6 @@
 # codex-demo
 
-Página web simple que lanza dados animados y devuelve un número aleatorio del 1 al 6 al terminar la animación.
+Página web en español para lanzar dados con animación 3D. Al pulsar el botón, los dados giran y se muestra un número aleatorio del 1 al 6. Si el resultado es 6, aparece confetti.
 
 ## Ejecutar en local
 
