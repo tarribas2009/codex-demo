@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tirada de dados 3D</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+    <main class="container">
+      <h1>Tira los dados</h1>
+      <p class="description">
+        Pulsa el botón para lanzar: verás dados 3D girando y, si sale un 6, ¡confetti!
+      </p>
+
+      <div class="scene" aria-live="polite" aria-label="Animación 3D de dados">
+        <div class="die" id="die-left">
+          <span class="face front">1</span>
+          <span class="face back">6</span>
+          <span class="face right">3</span>
+          <span class="face left">4</span>
+          <span class="face top">2</span>
+          <span class="face bottom">5</span>
+        </div>
+
+        <div class="die" id="die-right">
+          <span class="face front">1</span>
+          <span class="face back">6</span>
+          <span class="face right">3</span>
+          <span class="face left">4</span>
+          <span class="face top">2</span>
+          <span class="face bottom">5</span>
+        </div>
+      </div>
+
+      <button id="roll-button" type="button">Lanzar</button>
+      <p class="result" id="result">Resultado: —</p>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
