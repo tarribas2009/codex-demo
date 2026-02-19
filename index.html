@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tirada de dados</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Tira los dados</h1>
+      <p class="description">
+        Pulsa el botón para generar un número aleatorio entre 1 y 6 mientras los dados giran.
+      </p>
+
+      <div class="dice-wrapper" aria-live="polite" aria-label="Animación de dados">
+        <div class="die" id="die-left">⚀</div>
+        <div class="die" id="die-right">⚀</div>
+      </div>
+
+      <button id="roll-button" type="button">Lanzar</button>
+
+      <p class="result" id="result">Resultado: —</p>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
