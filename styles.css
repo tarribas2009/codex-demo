@@ -221,14 +221,13 @@ h4 {
 
 .dice-layout {
   display: grid;
-  grid-template-columns: minmax(320px, 1fr) minmax(320px, 420px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
   margin-top: 30px;
   align-items: start;
 }
 
 .dice-stage,
-.analytics-panel,
 .chart-card,
 .metric-card {
   border-radius: 24px;
@@ -238,8 +237,11 @@ h4 {
 
 .dice-stage {
   position: relative;
-  min-height: 540px;
+  min-height: 640px;
   padding: 28px;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  align-items: start;
   text-align: center;
   overflow: hidden;
 }
@@ -313,14 +315,10 @@ h4 {
 }
 
 .analytics-panel {
-  padding: 22px;
   display: grid;
-  gap: 18px;
-}
-
-.analytics-head {
-  display: grid;
-  gap: 8px;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  min-height: 640px;
 }
 
 .analytics-status {
@@ -328,10 +326,11 @@ h4 {
   color: var(--content-soft);
 }
 
-.analytics-metrics {
+.chart-summary {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
+  margin-top: 14px;
 }
 
 .metric-card {
@@ -354,6 +353,9 @@ h4 {
 
 .chart-card {
   padding: 18px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 .chart-copy p {
@@ -365,7 +367,8 @@ h4 {
 
 .chart-surface {
   margin-top: 14px;
-  min-height: 220px;
+  min-height: 0;
+  flex: 1 1 auto;
 }
 
 .chart-empty {
@@ -430,6 +433,14 @@ h4 {
   .dice-layout {
     grid-template-columns: 1fr;
   }
+
+  .analytics-panel {
+    min-height: auto;
+  }
+
+  .dice-stage {
+    min-height: 560px;
+  }
 }
 
 @media (max-width: 860px) {
@@ -467,7 +478,7 @@ h4 {
     width: 100%;
   }
 
-  .analytics-metrics {
+  .chart-summary {
     grid-template-columns: 1fr;
   }
 

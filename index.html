@@ -75,7 +75,7 @@
             <div class="dice-layout">
               <section class="dice-stage" aria-labelledby="dice-stage-title">
                 <h3 id="dice-stage-title" class="section-title">
-                  Lanzamiento actual
+                  Simulador de lanzamientos
                 </h3>
                 <canvas id="confetti-canvas" aria-hidden="true"></canvas>
 
@@ -111,41 +111,47 @@
               </section>
 
               <aside class="analytics-panel" aria-labelledby="analytics-title">
-                <div class="analytics-head">
-                  <h3 id="analytics-title" class="section-title">
-                    Analitica historica
-                  </h3>
-                  <p id="db-status" class="analytics-status" aria-live="polite">
-                    Preparando base de datos...
-                  </p>
-                </div>
-
-                <div class="analytics-metrics">
-                  <article class="metric-card">
-                    <span>Tiradas guardadas</span>
-                    <strong id="roll-count">0</strong>
-                  </article>
-                  <article class="metric-card">
-                    <span>Ultima suma</span>
-                    <strong id="latest-sum">-</strong>
-                  </article>
-                  <article class="metric-card">
-                    <span>Media</span>
-                    <strong id="average-sum">-</strong>
-                  </article>
-                </div>
-
-                <section class="chart-card" aria-labelledby="history-title">
+                <section
+                  class="chart-card chart-card-history"
+                  aria-labelledby="analytics-title"
+                >
                   <div class="chart-copy">
-                    <h4 id="history-title">Grafica historica de salida</h4>
+                    <h3 id="analytics-title" class="section-title">
+                      Analisis historico
+                    </h3>
+                    <p id="db-status" class="analytics-status" aria-live="polite">
+                      Preparando base de datos...
+                    </p>
+                  </div>
+
+                  <div class="chart-summary" aria-label="Resumen de tiradas">
+                    <article class="metric-card">
+                      <span>Tiradas guardadas</span>
+                      <strong id="roll-count">0</strong>
+                    </article>
+                    <article class="metric-card">
+                      <span>Ultima suma</span>
+                      <strong id="latest-sum">-</strong>
+                    </article>
+                    <article class="metric-card">
+                      <span>Media</span>
+                      <strong id="average-sum">-</strong>
+                    </article>
+                  </div>
+
+                  <div class="chart-copy">
+                    <h4 id="history-title">Grafica superior</h4>
                     <p>Secuencia cronologica de las sumas de las ultimas 100 tiradas.</p>
                   </div>
                   <div id="history-chart" class="chart-surface"></div>
                 </section>
 
-                <section class="chart-card" aria-labelledby="density-title">
+                <section
+                  class="chart-card chart-card-density"
+                  aria-labelledby="density-title"
+                >
                   <div class="chart-copy">
-                    <h4 id="density-title">Densidad de probabilidad</h4>
+                    <h4 id="density-title">Distribucion inferior</h4>
                     <p>Distribucion relativa de probabilidad para la suma de ambos dados.</p>
                   </div>
                   <div id="density-chart" class="chart-surface"></div>
