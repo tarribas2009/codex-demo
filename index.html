@@ -64,44 +64,94 @@
           hidden
         >
           <div class="panel dice-panel">
-            <canvas id="confetti-canvas" aria-hidden="true"></canvas>
-
             <p class="panel-eyebrow">App 2</p>
             <h2 id="dados-title">Tirada de dados 3D</h2>
             <p class="panel-copy">
-              Pulsa el boton para lanzar los dados. Si sale un 6 en el dado
-              izquierdo, aparece confeti.
+              Cada lanzamiento se guarda en IndexedDB. Se conservan las ultimas
+              100 tiradas para construir la grafica historica y la distribucion
+              de probabilidad.
             </p>
 
-            <div
-              class="scene"
-              aria-live="polite"
-              aria-label="Animacion 3D de dados"
-            >
-              <div class="die" id="die-left">
-                <span class="face front">1</span>
-                <span class="face back">6</span>
-                <span class="face right">3</span>
-                <span class="face left">4</span>
-                <span class="face top">2</span>
-                <span class="face bottom">5</span>
-              </div>
+            <div class="dice-layout">
+              <section class="dice-stage" aria-labelledby="dice-stage-title">
+                <h3 id="dice-stage-title" class="section-title">
+                  Lanzamiento actual
+                </h3>
+                <canvas id="confetti-canvas" aria-hidden="true"></canvas>
 
-              <div class="die" id="die-right">
-                <span class="face front">1</span>
-                <span class="face back">6</span>
-                <span class="face right">3</span>
-                <span class="face left">4</span>
-                <span class="face top">2</span>
-                <span class="face bottom">5</span>
-              </div>
+                <div
+                  class="scene"
+                  aria-live="polite"
+                  aria-label="Animacion 3D de dados"
+                >
+                  <div class="die" id="die-left">
+                    <span class="face front">1</span>
+                    <span class="face back">6</span>
+                    <span class="face right">3</span>
+                    <span class="face left">4</span>
+                    <span class="face top">2</span>
+                    <span class="face bottom">5</span>
+                  </div>
+
+                  <div class="die" id="die-right">
+                    <span class="face front">1</span>
+                    <span class="face back">6</span>
+                    <span class="face right">3</span>
+                    <span class="face left">4</span>
+                    <span class="face top">2</span>
+                    <span class="face bottom">5</span>
+                  </div>
+                </div>
+
+                <button id="roll-button" class="primary-button" type="button">
+                  Lanzar
+                </button>
+
+                <p class="dice-result" id="result">Resultado: -</p>
+              </section>
+
+              <aside class="analytics-panel" aria-labelledby="analytics-title">
+                <div class="analytics-head">
+                  <h3 id="analytics-title" class="section-title">
+                    Analitica historica
+                  </h3>
+                  <p id="db-status" class="analytics-status" aria-live="polite">
+                    Preparando base de datos...
+                  </p>
+                </div>
+
+                <div class="analytics-metrics">
+                  <article class="metric-card">
+                    <span>Tiradas guardadas</span>
+                    <strong id="roll-count">0</strong>
+                  </article>
+                  <article class="metric-card">
+                    <span>Ultima suma</span>
+                    <strong id="latest-sum">-</strong>
+                  </article>
+                  <article class="metric-card">
+                    <span>Media</span>
+                    <strong id="average-sum">-</strong>
+                  </article>
+                </div>
+
+                <section class="chart-card" aria-labelledby="history-title">
+                  <div class="chart-copy">
+                    <h4 id="history-title">Grafica historica de salida</h4>
+                    <p>Secuencia cronologica de las sumas de las ultimas 100 tiradas.</p>
+                  </div>
+                  <div id="history-chart" class="chart-surface"></div>
+                </section>
+
+                <section class="chart-card" aria-labelledby="density-title">
+                  <div class="chart-copy">
+                    <h4 id="density-title">Densidad de probabilidad</h4>
+                    <p>Distribucion relativa de probabilidad para la suma de ambos dados.</p>
+                  </div>
+                  <div id="density-chart" class="chart-surface"></div>
+                </section>
+              </aside>
             </div>
-
-            <button id="roll-button" class="primary-button" type="button">
-              Lanzar
-            </button>
-
-            <p class="dice-result" id="result">Resultado: -</p>
           </div>
         </section>
       </main>
