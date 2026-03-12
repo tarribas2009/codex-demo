@@ -3,23 +3,109 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hola App</title>
+    <title>Mini Apps</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="page">
-      <section class="card" aria-labelledby="app-title">
-        <p class="eyebrow">App web simple</p>
-        <h1 id="app-title">Un boton y un hola</h1>
-        <p class="description">Pulsa el boton para mostrar el saludo.</p>
-        <button id="hello-button" class="hello-button" type="button">
-          Decir hola
-        </button>
-        <p id="message" class="message" aria-live="polite">
-          Aun no has pulsado el boton.
+    <div class="app-shell">
+      <aside class="sidebar">
+        <p class="sidebar-eyebrow">Proyecto web</p>
+        <h1 class="sidebar-title">Mini Apps</h1>
+        <p class="sidebar-copy">
+          Elige una app en el menu y cambia entre ambas sin salir de la pagina.
         </p>
-      </section>
-    </main>
+
+        <nav class="app-nav" aria-label="Selector de aplicaciones">
+          <button
+            type="button"
+            class="nav-button"
+            data-view-target="hola"
+            aria-current="page"
+          >
+            App Hola
+          </button>
+          <button
+            type="button"
+            class="nav-button"
+            data-view-target="dados"
+          >
+            App Dados
+          </button>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <section
+          id="view-hola"
+          class="view is-active"
+          data-view="hola"
+          aria-labelledby="hola-title"
+        >
+          <div class="panel hello-panel">
+            <p class="panel-eyebrow">App 1</p>
+            <h2 id="hola-title">Un boton y un hola</h2>
+            <p class="panel-copy">Pulsa el boton para mostrar el saludo.</p>
+
+            <button id="hello-button" class="primary-button" type="button">
+              Decir hola
+            </button>
+
+            <p id="message" class="hello-message" aria-live="polite">
+              Aun no has pulsado el boton.
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="view-dados"
+          class="view"
+          data-view="dados"
+          aria-labelledby="dados-title"
+          hidden
+        >
+          <div class="panel dice-panel">
+            <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+            <p class="panel-eyebrow">App 2</p>
+            <h2 id="dados-title">Tirada de dados 3D</h2>
+            <p class="panel-copy">
+              Pulsa el boton para lanzar los dados. Si sale un 6 en el dado
+              izquierdo, aparece confeti.
+            </p>
+
+            <div
+              class="scene"
+              aria-live="polite"
+              aria-label="Animacion 3D de dados"
+            >
+              <div class="die" id="die-left">
+                <span class="face front">1</span>
+                <span class="face back">6</span>
+                <span class="face right">3</span>
+                <span class="face left">4</span>
+                <span class="face top">2</span>
+                <span class="face bottom">5</span>
+              </div>
+
+              <div class="die" id="die-right">
+                <span class="face front">1</span>
+                <span class="face back">6</span>
+                <span class="face right">3</span>
+                <span class="face left">4</span>
+                <span class="face top">2</span>
+                <span class="face bottom">5</span>
+              </div>
+            </div>
+
+            <button id="roll-button" class="primary-button" type="button">
+              Lanzar
+            </button>
+
+            <p class="dice-result" id="result">Resultado: -</p>
+          </div>
+        </section>
+      </main>
+    </div>
 
     <script type="module" src="src/main.js"></script>
   </body>
