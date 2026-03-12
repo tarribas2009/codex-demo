@@ -1,0 +1,118 @@
+:root {
+  --bg-top: #fff7ed;
+  --bg-bottom: #ffe2c6;
+  --panel: rgba(255, 252, 247, 0.88);
+  --panel-border: #f3b67a;
+  --text-main: #2f241d;
+  --text-soft: #7a5c43;
+  --button: #ff8a3d;
+  --button-hover: #e56f1f;
+  --button-text: #fffaf5;
+  --shadow: rgba(136, 77, 29, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.9), transparent 40%),
+    linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+}
+
+button {
+  font: inherit;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: min(100%, 460px);
+  padding: 32px;
+  border: 2px solid var(--panel-border);
+  border-radius: 24px;
+  background: var(--panel);
+  box-shadow: 0 24px 60px var(--shadow);
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 1;
+}
+
+.description {
+  margin: 16px 0 0;
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+
+.hello-button {
+  margin-top: 24px;
+  min-width: 180px;
+  min-height: 56px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--button);
+  color: var(--button-text);
+  cursor: pointer;
+  font-weight: 700;
+  transition:
+    transform 140ms ease,
+    background-color 140ms ease,
+    box-shadow 140ms ease;
+  box-shadow: 0 14px 28px rgba(229, 111, 31, 0.24);
+}
+
+.hello-button:hover,
+.hello-button:focus-visible {
+  background: var(--button-hover);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.hello-button:active {
+  transform: translateY(0);
+}
+
+.message {
+  min-height: 1.5em;
+  margin: 24px 0 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  .hello-button {
+    width: 100%;
+  }
+}
